@@ -1,0 +1,33 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+env/
+venv/
+ENV/
+
+# Environment settings (secrets, credentials)
+.env
+
+# Testing artifacts and reports
+.pytest_cache/
+.playwright/
+reports/
+test-results/
+*.log
+
+# Build / distribution
+dist/
+build/
+*.egg-info/
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store

@@ -1,0 +1,76 @@
+import os
+from PIL import Image, ImageDraw
+
+svg_content = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <!-- Outer Crimson Glow -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+    <linearGradient id="redBorderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff4d4d"/>
+      <stop offset="40%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#991b1b"/>
+    </linearGradient>
+    <linearGradient id="innerGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#ef4444" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background Shield Body -->
+  <path d="M128 18 
+           C192 18, 226 36, 226 84 
+           C226 156, 172 214, 128 238 
+           C84 214, 30 156, 30 84 
+           C30 36, 64 18, 128 18 Z" 
+        fill="url(#shieldGrad)" />
+
+  <!-- High-Tech Inner Glow / Shadow -->
+  <path d="M128 26 
+           C186 26, 218 42, 218 86 
+           C218 152, 168 206, 128 228 
+           C88 206, 38 152, 38 86 
+           C38 42, 70 26, 128 26 Z" 
+        fill="url(#innerGlow)" />
+
+  <!-- The Bold Crimson 'Red Border' -->
+  <path d="M128 18 
+           C192 18, 226 36, 226 84 
+           C226 156, 172 214, 128 238 
+           C84 214, 30 156, 30 84 
+           C30 36, 64 18, 128 18 Z" 
+        fill="none" 
+        stroke="url(#redBorderGrad)" 
+        stroke-width="14" 
+        stroke-linejoin="round"
+        filter="url(#glow)" />
+
+  <!-- Core Shield Emblem: Modern Stylized Hex Pulse + Checkmark / Radar -->
+  <!-- Tech Crosshair Node -->
+  <circle cx="128" cy="116" r="46" fill="none" stroke="#ef4444" stroke-width="3" stroke-dasharray="10 6" opacity="0.4" />
+  
+  <!-- Cyber Testing Radar Target / Checkmark -->
+  <path d="M102 118 L120 136 L158 96" 
+        fill="none" 
+        stroke="#ffffff" 
+        stroke-width="12" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" />
+
+  <!-- Tech Indicator Dots -->
+  <circle cx="128" cy="52" r="5" fill="#ef4444" />
+  <circle cx="128" cy="180" r="4" fill="#38bdf8" />
+</svg>
+"""
+
+with open("core/branding/redborder_tester_logo.svg", "w") as f:
+    f.write(svg_content)
+
+print("Created core/branding/redborder_tester_logo.svg")
